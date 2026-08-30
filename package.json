@@ -1,0 +1,42 @@
+{
+  "name": "signalk-marlec-plugin",
+  "version": "0.1.0",
+  "description": "SignalK Plugin for Marlec Charge Controllers",
+  "main": "plugin/index.js",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "prepublishOnly": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/philseeley/signalk-marlec-plugin.git"
+  },
+  "keywords": [
+    "signalk-node-server-plugin",
+    "signalk-category-hardware"
+  ],
+  "dependencies": {
+    "@signalk/server-api": "^2.0.0",
+    "@serialport/parser-delimiter": "^13.0.0",
+    "serialport": "^13.0.0"
+  },
+  "devDependencies": {
+    "@signalk/server-api": "^2.4.0",
+    "@types/express": "^5.0.6",
+    "@types/node": "^20.19.43",
+    "express": "^4.22.2",
+    "typescript": "^5.4.0"
+  },
+  "signalk-plugin-enabled-by-default": false,
+  "signalk": {
+    "displayName": "Marlec Charge Controller",
+    "appIcon": "icon-128.png"
+  },
+  "author": "Phil Seeley",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/philseeley/signalk-marlec-plugin/issues"
+  },
+  "homepage": "https://github.com/philseeley/signalk-marlec-plugin#readme"
+}
