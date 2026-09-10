@@ -113,18 +113,18 @@ module.exports = (app: ServerAPI): Plugin => {
   function updateData(settings: PluginSettings, data: string) {
     var values: PathValue[] = [];
 
-    if(settings.wgID !== undefined && settings.wgName !== undefined) values.push({path: `electrical.windGenerator.${settings.wgID}.name` as Path, value: settings.wgName});
+    if(settings.wgID !== undefined && settings.wgName !== undefined) values.push({path: `electrical.chargers.${settings.wgID}.name` as Path, value: settings.wgName});
     if(settings.pvID !== undefined && settings.pvName !== undefined) values.push({path: `electrical.solar.${settings.pvID}.name` as Path, value: settings.pvName});
 
     for(const item of data.split(' ')) {
       var value;
       if(settings.wgID !== undefined) {
         value = parse(item, 'WGV', 100);
-        if(value !== null) { values.push({path: `electrical.windGenerator.${settings.wgID}.voltage` as Path, value: value}); continue; };
+        if(value !== null) { values.push({path: `electrical.chargers.${settings.wgID}.voltage` as Path, value: value}); continue; };
         value = parse(item, 'WGI', 100);
-        if(value !== null) { values.push({path: `electrical.windGenerator.${settings.wgID}.current` as Path, value: value}); continue; };
+        if(value !== null) { values.push({path: `electrical.chargers.${settings.wgID}.current` as Path, value: value}); continue; };
         value = parse(item, 'WGon', 1);
-        if(value !== null) { values.push({path: `electrical.windGenerator.${settings.wgID}.state` as Path, value: {code: value, message: value===0?'off':'on'}}); continue; };
+        if(value !== null) { values.push({path: `electrical.chargers.${settings.wgID}.state` as Path, value: {code: value, message: value===0?'off':'on'}}); continue; };
       }
 
       if(settings.pvID !== undefined) {
